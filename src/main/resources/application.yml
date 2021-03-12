@@ -4,27 +4,8 @@ micronaut:
   router:
     static-resources:
       swagger:
-        enabled: true
         paths: classpath:META-INF/swagger
         mapping: /swagger/**
-      swagger-ui:
-        enabled: true
-        paths: classpath:META-INF/swagger/views/swagger-ui
-        mapping: /swagger-ui/**
   server:
     context-path: services
-  security:
-    intercept-url-map:
-      - pattern: /services/swagger/**
-        access:
-          - isAnonymous()
-      - pattern: /services/swagger-ui/**
-        access:
-          - isAnonymous()
-    authentication: bearer
-    token:
-      jwt:
-        signatures:
-          secret:
-            generator:
-              secret: '"${JWT_GENERATOR_SIGNATURE_SECRET:pleaseChangeThisSecretForANewOne}"'
+
